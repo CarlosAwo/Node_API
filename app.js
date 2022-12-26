@@ -1,10 +1,13 @@
 const express = require ("express")
+const morgan = require ("morgan")
 const app = express()
 
 const pokemons = require("./data")
 const port = 8000
 const baseUrl = `http://localhost:${port}`
 
+
+app.use(morgan('dev'))
 app.get("/", (req,res)=>{
     res.send("Welcome Sir !!!")
 })
