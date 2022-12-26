@@ -1,13 +1,17 @@
 const express = require ("express")
 const morgan = require ("morgan")
+const favicon = require ("serve-favicon")
 const app = express()
 
 const pokemons = require("./data")
-const port = 8000
+const port = 5000
+const faviconPath = __dirname + "/favicon.ico"
 const baseUrl = `http://localhost:${port}`
 
 
-app.use(morgan('dev'))
+app
+    .use(favicon(faviconPath ))
+   .use(morgan('dev'))
 app.get("/", (req,res)=>{
     res.send("Welcome Sir !!!")
 })
